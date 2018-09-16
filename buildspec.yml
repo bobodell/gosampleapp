@@ -16,3 +16,10 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+
+eb_codebuild_settings:
+  CodeBuildServiceRole: codebuild-goproject-service-role
+  ComputeType: BUILD_GENERAL1_SMALL
+  Image: aws/codebuild/golang:1.10
+  Timeout: 60
+
